@@ -1,1 +1,1 @@
-https://github.com/caddy-dns/gandi?tab=readme-ov-file
+https://github.com/caddy-dns/gandi
