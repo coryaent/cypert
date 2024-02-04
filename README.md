@@ -1,2 +1,1 @@
-# certbot
-Certbot with Gandi DNS provider plugin included
+https://github.com/caddy-dns/gandi?tab=readme-ov-file
