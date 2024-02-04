@@ -1,1 +1,1 @@
-https://github.com/caddy-dns/gandi
+https://github.com/obynio/certbot-plugin-gandi
