@@ -1,0 +1,46 @@
+version: "3.9"
+
+services:
+  initialize:
+    image: coryaent/certbot
+    deploy:
+      mode: global-job
+    hostname: "{{.Node.Hostname}}"
+    secrets:
+      - dns_gandi_api_key
+    volumes:
+      - certs:/etc/letsencrypt
+    command: >
+      certonly
+      --authenticator dns-gandi
+      --dns-gandi-credentials /run/secrets/dns_gandi_api_key
+      -d $(hostname).corya.enterprises
+
+  renew:
+    image: coryaent/certbot
+    deploy:
+      mode: global
+      labels:
+        - "swarm.cronjob.enable=true"
+        - "swarm.cronjob.schedule=0 * * * * *"
+        - "swarm.cronjob.skip-running=false"
+      restart_policy:
+        condition: none
+    secrets:
+      - dns_gandi_api_key
+    volumes:
+      - certs:/etc/letsencrypt
+    command: >
+      renew -q
+      --authenticator dns-gandi
+      --dns-gandi-credentials /run/secrets/dns_gandi_api_key
+
+
+secrets:
+  # dns_gandi_api_key=APIKEY
+  dns_gandi_api_key:
+    external: true
+
+volumes:
+  certs:
+    name: "certs"
