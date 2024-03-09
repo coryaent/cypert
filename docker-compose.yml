@@ -7,13 +7,13 @@ services:
       mode: global-job
     hostname: "{{.Node.Hostname}}"
     secrets:
-      - dns_gandi_api_key
+      - dns_gandi_token
     volumes:
       - certs:/etc/letsencrypt
     command: >
       certonly
       --authenticator dns-gandi
-      --dns-gandi-credentials /run/secrets/dns_gandi_api_key
+      --dns-gandi-credentials /run/secrets/dns_gandi_token
       -d $(hostname).corya.enterprises
 
   renew:
@@ -27,18 +27,18 @@ services:
       restart_policy:
         condition: none
     secrets:
-      - dns_gandi_api_key
+      - dns_gandi_token
     volumes:
       - certs:/etc/letsencrypt
     command: >
       renew -q
       --authenticator dns-gandi
-      --dns-gandi-credentials /run/secrets/dns_gandi_api_key
+      --dns-gandi-credentials /run/secrets/dns_gandi_token
 
 
 secrets:
-  # dns_gandi_api_key=APIKEY
-  dns_gandi_api_key:
+  # dns_gandi_token=APIKEY
+  dns_gandi_token:
     external: true
 
 volumes:
