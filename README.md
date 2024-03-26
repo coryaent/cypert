@@ -1,5 +1,4 @@
-# [Cypert](https://en.wikipedia.org/wiki/Boyd_Cypert)
-
+# Cypert
 This is an unofficial, unaffiliated redistribution of the Electronic Frontier Foundation's Certbot made for Docker Swarm.
 
 ## Plugins
