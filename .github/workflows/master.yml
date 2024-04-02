@@ -23,7 +23,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: coryaent/certbot
+          images: coryaent/cypert
         
       - name: Set up Docker Buildx
         id: buildx
