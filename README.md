@@ -1,5 +1,5 @@
 # Cypert
-This is an unofficial, unaffiliated modification and redistribution of the Electronic Frontier Foundation's Certbot made for Docker Swarm.
+This is an unofficial, unaffiliated modification and redistribution of the Electronic Frontier Foundation's Certbot made for Docker Swarm. It also works on a single server.
 
 ## Plugins
 All the [official ones](https://github.com/certbot/certbot) plus:
