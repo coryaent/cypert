@@ -15,7 +15,8 @@ RUN pip install certbot \
     certbot-dns-sakuracloud \
     certbot-plugin-gandi \
     certbot-dns-cpanel \
-    certbot-dns-directadmin
+    certbot-dns-directadmin \
+    certbot-dns-desec
 
 ENTRYPOINT ["certbot"]
 
